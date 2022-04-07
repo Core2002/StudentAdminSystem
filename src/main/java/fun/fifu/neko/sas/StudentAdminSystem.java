@@ -16,7 +16,7 @@ public class StudentAdminSystem {
                     addStudent();
                     break;
                 case "2":
-                    serachStudent();
+                    searchStudent();
                     break;
                 case "3":
                     deleteStudent();
@@ -36,7 +36,7 @@ public class StudentAdminSystem {
     private static void deleteStudent() {
     }
 
-    private static void serachStudent() {
+    private static void searchStudent() {
 
     }
 
