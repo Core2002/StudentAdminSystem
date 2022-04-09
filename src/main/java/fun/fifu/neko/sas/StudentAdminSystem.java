@@ -10,22 +10,16 @@ public class StudentAdminSystem {
     public static void main(String[] args) {
         System.out.println("====== 欢迎使用学生管理系统 ======");
         while (true) {
-            System.out.print("1.添加学生  2.查询学生  3.删除学生  4.修改学生  请选择操作（序号）：");
-            switch (scanner.next()) {
-                case "1":
-                    addStudent();
-                    break;
-                case "2":
-                    searchStudent();
-                    break;
-                case "3":
-                    deleteStudent();
-                    break;
-                case "4":
-                    changeStudent();
-                    break;
-                default:
-                    System.out.println("非法操作");
+            try {
+                System.out.print("1.添加学生  2.查询学生  3.删除学生  4.修改学生  请选择操作（序号）：");
+                switch (scanner.next()) {
+                    case "1" -> addStudent();
+                    case "2" -> searchStudent();
+                    case "3" -> deleteStudent();
+                    case "4" -> changeStudent();
+                    default -> System.out.println("非法操作");
+                }
+            } catch (Throwable ignored) {
             }
         }
     }
@@ -38,29 +32,28 @@ public class StudentAdminSystem {
             System.out.println(student);
             System.out.print("1.修改学号    2.修改姓名  3.修改身份证号     4.修改手机号     5.修改班级      6.暂不修改     请选择操作（序号）：");
             switch (scanner.next()) {
-                case "1":
+                case "1" -> {
                     System.out.println("请输入新学号：");
                     student.setId(scanner.nextLong());
-                    break;
-                case "2":
+                }
+                case "2" -> {
                     System.out.println("请输入新姓名：");
                     student.setName(scanner.next());
-                    break;
-                case "3":
+                }
+                case "3" -> {
                     System.out.println("请输入新身份证号：");
                     if (!student.setIdCard(scanner.next()))
                         System.out.println("输入的身份证号不合法，修改失败");
-                    break;
-                case "4":
+                }
+                case "4" -> {
                     System.out.println("请输入新手机号：");
                     student.setPhoneNumber(scanner.nextLong());
-                    break;
-                case "5":
+                }
+                case "5" -> {
                     System.out.println("请输入新班级：");
                     student.setClassName(scanner.next());
-                    break;
-                default:
-                    System.out.println("输入有误");
+                }
+                default -> System.out.println("输入有误");
             }
             DataManger.saveData();
             System.out.println("操作完毕");
@@ -76,24 +69,15 @@ public class StudentAdminSystem {
     private static void searchStudent() {
         System.out.print("1.按学号搜索     2.按姓名搜索     3.按身份证搜索    4.按手机号搜索    5.按班级搜索  6.所有信息   请选择操作（序号）：");
         switch (scanner.next()) {
-            case "1":
-                searchStudentById();
-                break;
-            case "2":
-                searchStudentByName();
-                break;
-            case "3":
-                searchStudentByIdCard();
-                break;
-            case "4":
-                searchStudentByClassName();
-                break;
-            case "6":
+            case "1" -> searchStudentById();
+            case "2" -> searchStudentByName();
+            case "3" -> searchStudentByIdCard();
+            case "4" -> searchStudentByClassName();
+            case "6" -> {
                 System.out.println("所有信息：");
                 DataManger.metaData.getItems().forEach(System.out::println);
-                break;
-            default:
-                System.out.println("选择有误");
+            }
+            default -> System.out.println("选择有误");
         }
     }
 
