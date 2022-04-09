@@ -37,7 +37,7 @@ public class StudentAdminSystem {
     }
 
     private static void searchStudent() {
-        System.out.print("1.按学号搜索     2.按姓名搜索     3.按身份证搜索    4.按手机号搜索    5.按班级搜索  请选择操作（序号）：");
+        System.out.print("1.按学号搜索     2.按姓名搜索     3.按身份证搜索    4.按手机号搜索    5.按班级搜索  6.所有信息   请选择操作（序号）：");
         switch (scanner.next()) {
             case "1":
                 searchStudentById();
@@ -51,8 +51,11 @@ public class StudentAdminSystem {
             case "4":
                 searchStudentByClassName();
                 break;
+            case "6":
+                System.out.println("所有信息：");
+                DataManger.metaData.getItems().forEach(System.out::println);
             default:
-                System.out.println("输入有误");
+                System.out.println("选择有误");
         }
     }
 
