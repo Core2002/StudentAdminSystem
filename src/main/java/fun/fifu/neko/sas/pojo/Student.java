@@ -16,4 +16,10 @@ public class Student {
     Long phoneNumber;
     // 密码
     String passWord;
+
+    @Override
+    public String toString() {
+        return String.format("学号：%d\t姓名：%s\t班级：%s\t身份证号：%s\t手机号：%s",
+                id, name, className, idCard, phoneNumber);
+    }
 }

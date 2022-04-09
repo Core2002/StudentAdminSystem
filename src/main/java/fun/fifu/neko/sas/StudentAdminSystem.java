@@ -94,6 +94,10 @@ public class StudentAdminSystem {
         student.setPhoneNumber(scanner.nextLong());
         System.out.println("请设置学生的密码：");
         student.setPassWord(scanner.next());
-        DataManger.addData(student);
+        if (DataManger.addData(student)) {
+            System.out.println("录入成功");
+        } else {
+            System.out.println("学号重复，录入失败");
+        }
     }
 }
