@@ -31,6 +31,39 @@ public class StudentAdminSystem {
     }
 
     private static void changeStudent() {
+        System.out.print("请输入要修改信息的学生的学号：");
+        Long id = scanner.nextLong();
+        DataManger.metaData.getItems().stream().filter(p -> p.getId().equals(id)).forEach(student -> {
+            System.out.println("正在操作条目：");
+            System.out.println(student);
+            System.out.print("1.修改学号    2.修改姓名  3.修改身份证号     4.修改手机号     5.修改班级      6.暂不修改     请选择操作（序号）：");
+            switch (scanner.next()) {
+                case "1":
+                    System.out.println("请输入新学号：");
+                    student.setId(scanner.nextLong());
+                    break;
+                case "2":
+                    System.out.println("请输入新姓名：");
+                    student.setName(scanner.next());
+                    break;
+                case "3":
+                    System.out.println("请输入新身份证号：");
+                    student.setIdCard(scanner.next());
+                    break;
+                case "4":
+                    System.out.println("请输入新手机号：");
+                    student.setPhoneNumber(scanner.nextLong());
+                    break;
+                case "5":
+                    System.out.println("请输入新班级：");
+                    student.setClassName(scanner.next());
+                    break;
+                default:
+                    System.out.println("输入有误");
+            }
+            DataManger.saveData();
+            System.out.println("操作完毕");
+        });
     }
 
     private static void deleteStudent() {
