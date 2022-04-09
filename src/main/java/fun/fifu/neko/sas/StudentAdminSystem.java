@@ -48,7 +48,8 @@ public class StudentAdminSystem {
                     break;
                 case "3":
                     System.out.println("请输入新身份证号：");
-                    student.setIdCard(scanner.next());
+                    if (!student.setIdCard(scanner.next()))
+                        System.out.println("输入的身份证号不合法，修改失败");
                     break;
                 case "4":
                     System.out.println("请输入新手机号：");
@@ -127,7 +128,10 @@ public class StudentAdminSystem {
         System.out.println("请输入学生的姓名：");
         student.setName(scanner.next());
         System.out.println("请输入学生的身份证号：");
-        student.setIdCard(scanner.next());
+        if (!student.setIdCard(scanner.next())) {
+            System.out.println("输入的身份证号不合法，添加失败");
+            return;
+        }
         System.out.println("请输入学生的班级：");
         student.setClassName(scanner.next());
         System.out.println("请输入学生的手机号：");
