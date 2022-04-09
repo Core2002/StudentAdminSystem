@@ -2,17 +2,17 @@ package fun.fifu.neko.sas;
 
 import cn.hutool.core.io.FileUtil;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import fun.fifu.neko.sas.pojo.Data;
 import fun.fifu.neko.sas.pojo.Student;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataManger {
     public static Data metaData;
     public static final File datafile = new File("./data.json");
-    public static final Gson gson = new Gson();
+    public static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     static {
         metaData = readData();
