@@ -34,6 +34,9 @@ public class StudentAdminSystem {
     }
 
     private static void deleteStudent() {
+        System.out.print("请输入要删除的学生的学号：");
+        DataManger.removeDataById(scanner.nextLong());
+        System.out.println("操作完毕");
     }
 
     private static void searchStudent() {
@@ -54,6 +57,7 @@ public class StudentAdminSystem {
             case "6":
                 System.out.println("所有信息：");
                 DataManger.metaData.getItems().forEach(System.out::println);
+                break;
             default:
                 System.out.println("选择有误");
         }

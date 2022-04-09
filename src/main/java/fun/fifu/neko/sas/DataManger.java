@@ -43,4 +43,13 @@ public class DataManger {
         }
         return false;
     }
+
+    public static void removeDataById(Long id) {
+        if (metaData.getItems() == null) {
+            metaData.setItems(new ArrayList<>());
+        }
+        DataManger.metaData.getItems().removeIf(p -> p.getId().equals(id));
+        saveData();
+    }
+
 }
