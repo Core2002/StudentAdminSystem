@@ -10,7 +10,7 @@ public class StudentAdminSystem {
     public static void main(String[] args) {
         System.out.println("====== 欢迎使用学生管理系统 ======");
         while (true) {
-            System.out.println("1.添加学生  2.查询学生  3.删除学生  4.修改学生  请选择操作（序号）：");
+            System.out.print("1.添加学生  2.查询学生  3.删除学生  4.修改学生  请选择操作（序号）：");
             switch (scanner.next()) {
                 case "1":
                     addStudent();
@@ -37,7 +37,47 @@ public class StudentAdminSystem {
     }
 
     private static void searchStudent() {
+        System.out.print("1.按学号搜索     2.按姓名搜索     3.按身份证搜索    4.按手机号搜索    5.按班级搜索  请选择操作（序号）：");
+        switch (scanner.next()) {
+            case "1":
+                searchStudentById();
+                break;
+            case "2":
+                searchStudentByName();
+                break;
+            case "3":
+                searchStudentByIdCard();
+                break;
+            case "4":
+                searchStudentByClassName();
+                break;
+            default:
+                System.out.println("输入有误");
+        }
+    }
 
+    private static void searchStudentByClassName() {
+        System.out.print("请输入学生班级：");
+        String className = scanner.next();
+        DataManger.metaData.getItems().stream().filter(p -> p.getClassName().equals(className)).forEach(System.out::println);
+    }
+
+    private static void searchStudentByIdCard() {
+        System.out.print("请输入学生身份证：");
+        String idCard = scanner.next();
+        DataManger.metaData.getItems().stream().filter(p -> p.getIdCard().equals(idCard)).forEach(System.out::println);
+    }
+
+    private static void searchStudentByName() {
+        System.out.print("请输入学生姓名：");
+        String name = scanner.next();
+        DataManger.metaData.getItems().stream().filter(p -> p.getName().equals(name)).forEach(System.out::println);
+    }
+
+    private static void searchStudentById() {
+        System.out.print("请输入学生学号：");
+        Long id = scanner.nextLong();
+        DataManger.metaData.getItems().stream().filter(p -> p.getId().equals(id)).forEach(System.out::println);
     }
 
     private static void addStudent() {
