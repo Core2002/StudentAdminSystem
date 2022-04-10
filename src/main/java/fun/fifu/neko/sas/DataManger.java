@@ -16,6 +16,10 @@ public class DataManger {
 
     static {
         metaData = readData();
+        if (metaData.getItems() == null) {
+            metaData.setItems(new ArrayList<>());
+            saveData();
+        }
     }
 
     public static Data readData() {
@@ -33,9 +37,6 @@ public class DataManger {
     }
 
     public static boolean addData(Student student) {
-        if (metaData.getItems() == null) {
-            metaData.setItems(new ArrayList<>());
-        }
         if (metaData.getItems().stream().noneMatch(s -> s.getId().equals(student.getId()))) {
             metaData.getItems().add(student);
             saveData();
@@ -45,9 +46,6 @@ public class DataManger {
     }
 
     public static void removeDataById(Long id) {
-        if (metaData.getItems() == null) {
-            metaData.setItems(new ArrayList<>());
-        }
         DataManger.metaData.getItems().removeIf(p -> p.getId().equals(id));
         saveData();
     }
