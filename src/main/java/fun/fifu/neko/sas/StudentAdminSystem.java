@@ -109,6 +109,10 @@ public class StudentAdminSystem {
         Student student = new Student();
         System.out.println("请输入学生的学号：");
         student.setId(scanner.nextLong());
+        if (DataManger.metaData.getItems().stream().anyMatch(s -> s.getId().equals(student.getId()))) {
+            System.out.println("学号重复，添加失败");
+            return;
+        }
         System.out.println("请输入学生的姓名：");
         student.setName(scanner.next());
         System.out.println("请输入学生的身份证号：");
