@@ -35,7 +35,6 @@ public class Student {
         stringBuilder.append("籍贯：").append(IdcardUtil.getProvinceByIdCard(idCard)).append('\t');
         stringBuilder.append("年龄：").append(IdcardUtil.getAgeByIdCard(idCard)).append('\t');
         stringBuilder.append("班级：").append(className).append('\t');
-//        stringBuilder.append("身份证号：").append(idCard).append('\t');
         stringBuilder.append("生日：").append(IdcardUtil.getBirth(idCard)).append('\t');
         stringBuilder.append("手机号：").append(phoneNumber).append('\t');
         return stringBuilder.toString();
