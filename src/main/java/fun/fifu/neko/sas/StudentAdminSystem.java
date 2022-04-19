@@ -72,13 +72,20 @@ public class StudentAdminSystem {
             case "1" -> searchStudentById();
             case "2" -> searchStudentByName();
             case "3" -> searchStudentByIdCard();
-            case "4" -> searchStudentByClassName();
+            case "4" -> searchStudentByPhoneNumber();
+            case "5" -> searchStudentByClassName();
             case "6" -> {
                 System.out.println("所有信息：");
                 DataManger.metaData.getItems().forEach(System.out::println);
             }
             default -> System.out.println("选择有误");
         }
+    }
+
+    private static void searchStudentByPhoneNumber() {
+        System.out.print("请输入学生的手机号：");
+        Long id = scanner.nextLong();
+        DataManger.metaData.getItems().stream().filter(p -> p.getPhoneNumber().equals(id)).forEach(System.out::println);
     }
 
     private static void searchStudentByClassName() {
