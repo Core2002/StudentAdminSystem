@@ -74,12 +74,14 @@ public class StudentAdminSystem {
             case "3" -> searchStudentByIdCard();
             case "4" -> searchStudentByPhoneNumber();
             case "5" -> searchStudentByClassName();
-            case "6" -> {
-                System.out.println("所有信息：");
-                DataManger.metaData.getItems().forEach(System.out::println);
-            }
+            case "6" -> searchStudentAll();
             default -> System.out.println("选择有误");
         }
+    }
+
+    private static void searchStudentAll() {
+        System.out.println("所有信息：");
+        DataManger.metaData.getItems().forEach(System.out::println);
     }
 
     private static void searchStudentByPhoneNumber() {
