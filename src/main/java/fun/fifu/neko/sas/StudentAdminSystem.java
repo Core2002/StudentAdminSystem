@@ -9,8 +9,8 @@ public class StudentAdminSystem {
 
     public static void main(String[] args) {
         System.out.println("====== 欢迎使用学生管理系统 ======");
-        while (true) {
-            try {
+        try {
+            while (true) {
                 System.out.print("1.添加学生  2.查询学生  3.删除学生  4.修改学生  请选择操作（序号）：");
                 switch (scanner.next()) {
                     case "1" -> addStudent();
@@ -19,8 +19,8 @@ public class StudentAdminSystem {
                     case "4" -> changeStudent();
                     default -> System.out.println("非法操作");
                 }
-            } catch (Throwable ignored) {
             }
+        } catch (Throwable ignored) {
         }
     }
 
