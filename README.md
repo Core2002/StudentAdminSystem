@@ -3,7 +3,7 @@
 
 ------
 
-# 如何使用
+# 如 何 使 用
 > 所需环境：  
 > Java 17+  
 > 良好的网络
@@ -22,7 +22,8 @@ java -jar build/libs/StudentAdminSystem-1.0-SNAPSHOT-all.jar
 
 ------
 
-- 效果
+# 运 行 效 果
+- 功能概览
 ``` bash
 # 声明： 以下出现的身份证号码为随机编造的，如有雷同，纯属巧合。
 
@@ -71,4 +72,20 @@ D:\_Code\StudentAdminSystem>java -jar build/libs/StudentAdminSystem-1.0-SNAPSHOT
 所有信息：
 
 1.添加学生  2.查询学生  3.删除学生  4.修改学生  请选择操作（序号）：
+```
+
+- `data.json` 数据文件示例
+```json
+{
+  "items": [
+    {
+      "id": 2200001,
+      "name": "钟小白",
+      "className": "2202",
+      "idCard": "310109200504159966",
+      "phoneNumber": 12345678912,
+      "passWord": "123456"
+    }
+  ]
+}
 ```
